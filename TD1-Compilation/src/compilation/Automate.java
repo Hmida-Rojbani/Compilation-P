@@ -112,6 +112,44 @@ public class Automate {
 		}
 		return etat == 4;
 	}
+	
+	
+	public static boolean endsWithABA(String s) {
+		char c;
+		int i = 0;
+		int etat = 0;
+		while (i < s.length()) {
+			c = s.charAt(i);
+			if (c != 'a' && c != 'b')
+				throw new IllegalArgumentException("only a and b is accepted");
+			switch (etat) {
+			case 0:
+				if (c == 'a')
+					etat = 1;
+				break;
+			case 1:
+				if (c == 'b')
+					etat = 2;
+				break;
 
+			case 2:
+				if (c == 'a')
+					etat = 3;
+				else 
+					etat = 0;
+				break;
+			case 3:
+				if (c == 'a')
+					etat = 1;
+				else 
+					etat = 2;
+				break;
+			}
+
+			i++;
+
+		}
+		return etat == 3;
+	}
 
 }
