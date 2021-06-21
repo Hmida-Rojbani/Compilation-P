@@ -1,7 +1,7 @@
 package compilation;
 
 import java.util.Scanner;
-import static compilation.Automate.onlyOneB;
+import static compilation.Automate.*;
 
 public class Test {
 
@@ -9,7 +9,7 @@ public class Test {
 		try(Scanner sc = new Scanner(System.in);){
 		System.out.println("give the word to test");
 		String s = sc.next();
-		if(onlyOneB(s))
+		if(validateFraction(s))
 			System.out.println("String is valid");
 		else
 			System.out.println("String is invalid");
